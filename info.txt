@@ -1,0 +1,7 @@
+to start Django project
+
+django-admin startproject "projekt_namn"
+
+efter
+
+python manage.py runserver
