@@ -1,7 +1,16 @@
 to start Django project
 
-django-admin startproject "projekt_namn"
+>>django-admin startproject "projekt_namn"
 
 efter
 
-python manage.py runserver
+>>python manage.py runserver
+
+Create an application 
+
+>>python manage.py startapp  “appnamn”
+
+Gå in i projektmappen -> settings.py -> skriv in “appnamn” i Installed_APPS
+Lägg till template-mapp och urls.py inuti appen.
+
+
