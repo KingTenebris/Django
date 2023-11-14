@@ -4,15 +4,28 @@ from django.shortcuts import render, redirect
 def home(request):
     return render(request, "home.html")
 
+
+
 def calc(request):
     return render(request, "calculator.html")
 
-def calcnumb(request, number):
-    
+def calcnumb(request):
     if request.method=="POST":
-        data = request.POST.get("numb")
-    # return render("calculator.html",{"data":data})
-    return redirect(f"/home/calculator/{data}")
+        number = request.POST.get("numb")
+    return redirect(f"/home/calculator/{number}")
+
+def results(request, number):
+
+    summa = number * 2
+
+    return render(request, "calculator.html", {"number":number, "summa":summa})
+
+
+
+
+
+
+
 
 def forms(request):
     return render(request, "forms.html")

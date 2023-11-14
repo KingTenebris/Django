@@ -7,7 +7,10 @@ urlpatterns = [
     # Calculator 
     path("calculator/", views.calc, name="calc"),
 
-    path("calcnumb/<int:number>", views.calcnumb, name="calcnumb"),
+    path("calcnumb/", views.calcnumb, name="calcnumb"),
+
+    path("calculator/<int:number>/", views.results, name="results"),
+
     # Forms
     path("forms/", views.forms, name="forms"),
     # To-Do List

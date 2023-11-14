@@ -15,3 +15,8 @@ p{
 .boxLink{
     background-color: aqua;
 }
+
+.boxNumb{
+    display: flex;
+    flex-direction: column;
+}

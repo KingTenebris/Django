@@ -10,13 +10,23 @@
     {% block content%}
         <h1>This is Calculator</h1>
 
-        <form action="{% url 'calcnumb' 1 %}" method="POST">
+        <form action="{% url 'calcnumb' %}" method="POST">
             {% csrf_token %}
             <input type="number" name="numb">
             <input type="submit" value="Submit">
         </form>
 
-        <h3>Your number is: {{data}}</h3>
+        <h3>Your number is: {{number}}</h3>
+
+        
+
+        <div class="boxNumb">
+            {% for i in "123456789" %}
+                <p>{{i}} {{summa}}</p>
+            {% endfor %}
+        </div>
+
+        
     {%endblock%}
 </body>
 </html>
