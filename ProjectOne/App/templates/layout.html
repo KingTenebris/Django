@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project One</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <nav class = "navbar">
+        <div class="box">
+            <a href="{% url 'home' %}"><p>Home</p></a>
+        </div>
+        <div class="box">
+            <a href="{% url 'calc' %}"><p>Calculator</p></a>
+        </div>
+        <div class="box">
+            <a href="{% url 'forms' %}"><p>Forms</p></a>
+        </div>
+        <div class="box">
+            <a href="{% url 'toDo' %}"><p>To-Do List</p></a>
+        </div>
+    </nav>
+    <hr>    
+
+    {%block content%}
+        <h2>This is Layout</h2>
+    {%endblock%}
+</body>
+</html>
