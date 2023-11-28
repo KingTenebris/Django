@@ -1,0 +1,34 @@
+{%extends 'layout.html'%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {%block name%}
+    <title>Calculator</title>
+    {%endblock%}
+</head>
+<body>
+    {% block content%}
+        <h1>This is Calculator</h1>
+
+        <form action="{% url 'number'%}" method="POST">
+            {% csrf_token %}
+            <input type="number" name="number">
+            <input type="submit" value="Submit">
+        </form>
+
+        <h3>Your number is: {{number}}</h3>
+
+        
+
+        <div class="boxNumb">
+            {% for i in numbers %}
+                <p>{{number}} * {{forloop.counter}} = {{i}}</p>
+            {% endfor %}
+        </div>
+
+        
+    {%endblock%}
+</body>
+</html>
