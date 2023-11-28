@@ -12,15 +12,13 @@
     {% block content%}
         <h1>This is Calculator</h1>
 
-        <form action="{% url 'number'%}" method="POST">
+        <form action="{% url 'number' %}" method="POST">
             {% csrf_token %}
             <input type="number" name="number">
             <input type="submit" value="Submit">
         </form>
 
         <h3>Your number is: {{number}}</h3>
-
-        
 
         <div class="boxNumb">
             {% for i in numbers %}
