@@ -18,11 +18,13 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
     # App 1
     path('home/', include('Homepage.urls')),
     # App 2
     path('home/calculator/', include('Calculator.urls')),
     # App 3
     path('home/forms/', include('Forms.urls')),
+    # App 4 
+    # My fuck up with names XD
+    path('home/shop/', include('ToDo.urls')),
 ]

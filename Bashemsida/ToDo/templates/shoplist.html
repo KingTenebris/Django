@@ -1,0 +1,85 @@
+{%extends 'layout.html'%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {%block name%}
+    <title>Shop-List</title>
+    {%endblock%}
+</head>
+<body>
+    {% block content%}
+
+        <h1>Here is the Shop-List</h1>
+        <h2>Please apply your items here!</h2>
+
+        <div>
+            <!-- Action need to have url as view.py has -->
+            <form action="{% url 'doneShop'%}" method = "POST">
+                {% csrf_token %}
+                <label for="buy">What you want to buy?</label><br>
+                <input type="text" name="buy"><br>
+
+                <!-- Radio need to have the same NAME and different VALUE -->
+                <p>Category</p>
+
+                <input type="radio" id="food" name="categories" value="Food">
+                <label for="food">Food</label><br>  
+                <input type="radio" id="cleaning" name="categories" value="Cleaning">
+                <label for="cleaning">Cleaning</label><br>
+                <input type="radio" id="electronic" name="categories" value="Electronic">
+                <label for="electronic">Electronic</label><br>
+                <input type="radio" id="other" name="categories" value="Other">
+                <label for="other">Other</label><br>
+
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+
+        
+
+        <div class="foodList">
+            {% if fList %}
+                <h2>Food List</h2>
+                {% for f in fList%}
+                    <p>
+                        {{forloop.counter}}. {{f}} 
+                        <form action="{% url 'removeItem' %}" method = "POST">
+                            {% csrf_token %}
+                            <button type="submit" >X</button>
+                            <input type="text" value = "{{forloop.counter}}{{f}}" name="{{forloop.counter}}{{f}}" style="display: none;">
+                        </form>
+                    </p>
+                {% endfor %}
+            {% endif %}
+        </div>
+
+        <div class="cleanList">
+            {% if cList %}
+                <h2>Cleaning List</h2>
+                {% for c in cList%}
+                    <p>{{forloop.counter}}. {{c}}</p>
+                {% endfor %}
+            {% endif %}
+        </div>
+        <!-- to do later with if-->
+        <div class="elList">
+            {% if eList %}
+                <h2>Electronic List</h2>
+                {% for e in eList%}
+                    <p>{{forloop.counter}}. {{e}}</p>
+                {% endfor %}
+            {% endif %}
+        </div>
+        <div class="otherList">
+            {% if oList %}
+                <h2>Other List</h2>
+                {% for o in oList%}
+                    <p>{{forloop.counter}}. {{o}}</p>
+                {% endfor %}
+            {% endif %}
+        </div>
+    {%endblock%}
+</body>
+</html>
