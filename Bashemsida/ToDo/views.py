@@ -61,23 +61,24 @@ def removeItem(request):
             if rm == (f"{fIndex}{f}"):
                 fList.remove(f"{f}")
 
-        # for f in fList:
-        #     fIndex = fList.index(f) + 1
-        #     rm = request.POST.get(f"{fIndex}{f}")
-        #     if rm == (f"{fIndex}{f}"):
-        #         fList.remove(f"{f}")
+        for c in cList:
+            cIndex = cList.index(c) + 1
+            rm = request.POST.get(f"{cIndex}{c}")
+            if rm == (f"{cIndex}{c}"):
+                cList.remove(f"{c}")
 
-        # for f in fList:
-        #     fIndex = fList.index(f) + 1
-        #     rm = request.POST.get(f"{fIndex}{f}")
-        #     if rm == (f"{fIndex}{f}"):
-        #         fList.remove(f"{f}")
+        for e in eList:
+            eIndex = eList.index(e) + 1
+            rm = request.POST.get(f"{eIndex}{e}")
+            if rm == (f"{eIndex}{e}"):
+                eList.remove(f"{e}")
 
-        # for f in fList:
-        #     fIndex = fList.index(f) + 1
-        #     rm = request.POST.get(f"{fIndex}{f}")
-        #     if rm == (f"{fIndex}{f}"):
-        #         fList.remove(f"{f}")
+        for o in oList:
+            oIndex = oList.index(o) + 1
+            rm = request.POST.get(f"{oIndex}{o}")
+            if rm == (f"{oIndex}{o}"):
+                oList.remove(f"{o}")
+                
     return redirect('shoplist')
 
         

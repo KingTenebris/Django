@@ -59,7 +59,14 @@
             {% if cList %}
                 <h2>Cleaning List</h2>
                 {% for c in cList%}
-                    <p>{{forloop.counter}}. {{c}}</p>
+                    <p>
+                        {{forloop.counter}}. {{c}} 
+                        <form action="{% url 'removeItem' %}" method = "POST">
+                            {% csrf_token %}
+                            <button type="submit" >X</button>
+                            <input type="text" value = "{{forloop.counter}}{{c}}" name="{{forloop.counter}}{{c}}" style="display: none;">
+                        </form>
+                    </p>
                 {% endfor %}
             {% endif %}
         </div>
@@ -68,7 +75,14 @@
             {% if eList %}
                 <h2>Electronic List</h2>
                 {% for e in eList%}
-                    <p>{{forloop.counter}}. {{e}}</p>
+                    <p>
+                        {{forloop.counter}}. {{e}} 
+                        <form action="{% url 'removeItem' %}" method = "POST">
+                            {% csrf_token %}
+                            <button type="submit" >X</button>
+                            <input type="text" value = "{{forloop.counter}}{{e}}" name="{{forloop.counter}}{{e}}" style="display: none;">
+                        </form>
+                    </p>
                 {% endfor %}
             {% endif %}
         </div>
@@ -76,7 +90,14 @@
             {% if oList %}
                 <h2>Other List</h2>
                 {% for o in oList%}
-                    <p>{{forloop.counter}}. {{o}}</p>
+                    <p>
+                        {{forloop.counter}}. {{o}} 
+                        <form action="{% url 'removeItem' %}" method = "POST">
+                            {% csrf_token %}
+                            <button type="submit" >X</button>
+                            <input type="text" value = "{{forloop.counter}}{{o}}" name="{{forloop.counter}}{{o}}" style="display: none;">
+                        </form>
+                    </p>
                 {% endfor %}
             {% endif %}
         </div>
