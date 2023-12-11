@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyModels</title>
+</head>
+<body>
+    <h1>Persons</h1>
+    {% for Person in persons %}
+        <p>Name: {{Person.name}}. Age: {{Person.age}}</p>
+    {% endfor %}
+
+    <form action="">
+        <label for="">Your name</label><br>
+        <input type="text" id="" name="" value=""><br>
+        <label for="">Your age</label><br>
+        <input type="text" id="" name="" value=""><br>
+        <input type="sybmit" value="Submit">
+    </form>
+</body>
+</html>
