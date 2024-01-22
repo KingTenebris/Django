@@ -4,5 +4,6 @@ from . import views
 from .views import directorsList, filmsList
 
 urlpatterns = [
-    path('directors/', views.directorsList, name="directorsList"),
+    path('<int:director_id>', views.filmsList, name="filmsList"),
+    path('', views.directorsList, name="directorsList"),
 ]

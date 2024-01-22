@@ -7,5 +7,10 @@
 </head>
 <body>
     <h1>Director list</h1>
+    <ul>
+        {% for director in directors %}
+        <li><a href="{% url 'filmsList' director.id %}">{{ director }}</a></li>
+        {% endfor %}
+    </ul>
 </body>
 </html>

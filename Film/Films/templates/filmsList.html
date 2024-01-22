@@ -6,6 +6,13 @@
     <title>Film List</title>
 </head>
 <body>
-    <h1>Films list</h1>
+    <h1>{{ director }} films list</h1>
+    
+    <ul>
+        {% for film in films %}
+        <li>{{ film }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'directorsList' %}"> back to directors</a>
 </body>
 </html>
