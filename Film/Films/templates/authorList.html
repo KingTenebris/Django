@@ -12,5 +12,13 @@
         <li><a href="{% url 'filmsList' director.id %}">{{ director }}</a></li>
         {% endfor %}
     </ul>
+
+    <br>
+
+    <button>
+        <a href="{% url 'dramaFilms' %}">Drama</a>
+    </button>
+
+
 </body>
 </html>

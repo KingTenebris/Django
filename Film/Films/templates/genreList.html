@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Film List</title>
+    <title>Directors List</title>
 </head>
 <body>
-    <h1>{{ director }} films list</h1>
-    
+    <h1>Genre list</h1>
+
     <ul>
         {% for film in films %}
         <li>{{ film }}</li>
         {% endfor %}
     </ul>
-    
+
     <a href="{% url 'directorsList' %}"> back to directors</a>
 </body>
 </html>
