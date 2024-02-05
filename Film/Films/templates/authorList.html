@@ -15,10 +15,33 @@
 
     <br>
 
+   
+        <p>Funkar inte</p>
+        {% for movie in movies%}
+        <button>
+            <a href="{% url 'genre_movies' movie.genre %}">{{movie.genre}} </a>
+        </button>
+        {%endfor%}
+    
+    
+    <br> 
+
+    <p>Funkar</p>
     <button>
         <a href="{% url 'dramaFilms' %}">Drama</a>
     </button>
-
+    <button>
+        <a href="{% url 'actionFilms' %}">Action</a>
+    </button>
+    <button>
+        <a href="{% url 'adventureFilms' %}">Adventure</a>
+    </button>
+    <button>
+        <a href="{% url 'horrorFilms' %}">Horror</a>
+    </button>
+    <button>
+        <a href="{% url 'biographyFilms' %}">Biography</a>
+    </button>
 
 </body>
 </html>
