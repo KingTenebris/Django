@@ -13,20 +13,16 @@
         {% endfor %}
     </ul>
 
+    <h1>Film list</h1>
+    <ul>
+        {% for movie in movies %}
+        <li>{{ movie }}</li>
+        {% endfor %}
+    </ul>
+
     <br>
-
-   
-        <p>Funkar inte</p>
-        {% for movie in movies%}
-        <button>
-            <a href="{% url 'genre_movies' movie.genre %}">{{movie.genre}} </a>
-        </button>
-        {%endfor%}
-    
-    
-    <br> 
-
-    <p>Funkar</p>
+     
+    <h2>Funkar</h2>
     <button>
         <a href="{% url 'dramaFilms' %}">Drama</a>
     </button>
@@ -43,5 +39,20 @@
         <a href="{% url 'biographyFilms' %}">Biography</a>
     </button>
 
+    <br>
+
+    <h2>Add a film</h2>
+    <button>
+        <a href="{% url 'addFilm' %}">Add a film</a>
+    </button>
+
+    <br>
+
+    <h2>Funkar inte</h2>
+        {% for movie in movies%}
+        <button>
+            <a href="{% url 'genreMovies' movie.genre %}">{{movie.genre}} </a>
+        </button>
+        {%endfor%}
 </body>
 </html>

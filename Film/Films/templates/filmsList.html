@@ -10,7 +10,12 @@
     
     <ul>
         {% for film in films %}
-        <li>{{ film }}</li>
+        <li>Name: {{ film }}</li>
+        <li>Year: {{ film.year }}</li>
+        <li>Rating: {{ film.rating }}</li>
+        <li>Genre: {{ film.genre }}</li>
+        <br>
+
         {% endfor %}
     </ul>
     

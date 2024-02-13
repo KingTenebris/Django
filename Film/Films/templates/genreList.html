@@ -6,15 +6,7 @@
     <title>Directors List</title>
 </head>
 <body>
-    <h1>Genre list</h1>
-    <h2>
-        Genre: {{ genre }}
-
-        {% for genre in genres %}
-            {{ genre.genre }}
-        {% endfor %}
-    </h2>
-
+    <h1>Genre: {{ genre }}</h1>
     <ul>
         {% for film in films %}
         <li>{{ film }}</li>
