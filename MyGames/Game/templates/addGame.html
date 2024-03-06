@@ -1,0 +1,58 @@
+{% extends 'home.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add game</title>
+</head>
+<body>
+
+    {% block information %}
+
+    <form action="" style="display:flex; flex-direction:column; width:25%">
+
+        <label for="">Name:</label>
+        <input type="text" name="gameName">
+        
+        <label for="">Year:</label>
+        <input type="text" name="gameYear">
+        
+        <label for="">Phase:</label>
+        <select name="gamePhase" id="">
+            <option value=""></option>
+            <option value=""></option>
+            <option value=""></option>
+        </select>
+        
+        <label for="">Developer:</label> 
+        <select name="gameDeveloper" id="">
+            <option value=""></option>
+            <option value=""></option>
+            <option value=""></option>
+        </select>   
+        
+        <label for="">Platform:</label>
+        <select name="gamePlatform" id="">
+            <option value=""></option>
+            <option value=""></option>
+            <option value=""></option>
+        </select>
+        
+        <label for="">Category:</label>
+        <select name="gameCategory" id="">
+            <option value=""></option>
+            <option value=""></option>
+            <option value=""></option>
+        </select>
+
+        <br>
+
+        <input type="submit" value="">
+
+    </form>
+
+    {% endblock %}
+    
+</body>
+</html>
