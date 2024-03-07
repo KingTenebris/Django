@@ -1,16 +1,8 @@
 {% extends 'home.html' %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add game</title>
-</head>
-<body>
 
-    {% block information %}
+    {% block content %}
 
-    <form action="" style="display:flex; flex-direction:column; width:25%">
+    <form action="{% url 'addGame' %}" style="display:flex; flex-direction:column; width:25%">
 
         <label for="">Name:</label>
         <input type="text" name="gameName">
@@ -19,40 +11,40 @@
         <input type="text" name="gameYear">
         
         <label for="">Phase:</label>
-        <select name="gamePhase" id="">
-            <option value=""></option>
-            <option value=""></option>
-            <option value=""></option>
+        <select name="phases" id="">
+            {% for i in phases %}
+                <option value="{{i}}">{{ i }}</option>
+            {% endfor %}
         </select>
         
         <label for="">Developer:</label> 
-        <select name="gameDeveloper" id="">
-            <option value=""></option>
-            <option value=""></option>
-            <option value=""></option>
+        <select name="developers" id="">
+            {% for i in developers%}
+                <option value="{{i}}">{{ i }}</option>
+            {% endfor %}
         </select>   
         
         <label for="">Platform:</label>
-        <select name="gamePlatform" id="">
-            <option value=""></option>
-            <option value=""></option>
-            <option value=""></option>
+        <select name="platforms" id="">
+            {% for i in platforms%}
+                <option value="{{i}}">{{ i }}</option>
+            {% endfor %}
         </select>
         
         <label for="">Category:</label>
-        <select name="gameCategory" id="">
-            <option value=""></option>
-            <option value=""></option>
-            <option value=""></option>
+        <select name="categories" id="">
+            {% for i in categories%}
+                <option value="{{i}}">{{ i }}</option>
+            {% endfor %}
         </select>
 
         <br>
 
-        <input type="submit" value="">
+        <input type="submit" value="Submit">
 
     </form>
 
+    <br>
+
+    <button><a href="{% url 'home' %}">Back</a></button>
     {% endblock %}
-    
-</body>
-</html>
