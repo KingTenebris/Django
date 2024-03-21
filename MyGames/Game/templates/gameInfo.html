@@ -1,0 +1,22 @@
+{% extends 'home.html' %}
+
+{% block content %}
+
+<div>
+    <ul>
+        <li>{{ game }}</li>
+        <li>{{ game.year }}</li> 
+        <li>{{ game.phase }}</li>
+        <li>{{ game.platform }}</li>
+        <li>{{ game.developer }}</li>
+        <li>{{ game.category }}</li>
+    </ul>
+   
+    
+</div>
+
+<a href="">Edit</a>
+<a href="{% url 'home' %}">Back</a>
+
+
+{% endblock %}

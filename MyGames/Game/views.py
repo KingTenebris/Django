@@ -17,17 +17,19 @@ def addGame(request):
     
 
         try:
-            checkPhase = Phase.objects.get (name = gamePhase) #name???
+            # on the left side "name" from models.py
+            checkPhase = Phase.objects.get (state = gamePhase) 
+            checkDeveloper = Developer.objects.get (name = gameDeveloper)
+            checkPlatform = Platform.objects.get (name = gamePlatform)
+            checkCategory = Category.objects.get (genre = gameCategory)
         except:
             return HttpResponse("Something not found", state=404)
         
-        Games.objects.create(name = gameName, year = gameYear, phase = checkPhase)
+        
+        Game.objects.create(name = gameName, year = gameYear, phase = checkPhase, developer = checkDeveloper, platform = checkPlatform, category = checkCategory)
 
         return redirect('/home')
     
-        #TODO try except method with all selections 
-
-
     else:
         gamePhase = Phase.objects.all()
         gameDeveloper = Developer.objects.all()
@@ -44,5 +46,15 @@ def addGame(request):
         
     return render(request, "addGame.html", dictionary)
 
-def games(request):
-    return render(request, "games.html")
+def gameList(request):
+    games = Game.objects.all()
+    return render(request, "gameList.html", {"games": games})
+
+def gameInfo(request, game_id):
+    game = Game.objects.get(id=game_id)
+    return render(request, "gameInfo.html", {"game": game})
+
+def removeGame(request, game_id):
+    game = Game.objects.get(id=game_id)
+    game.delete()
+    return redirect("gameList")

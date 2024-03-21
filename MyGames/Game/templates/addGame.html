@@ -2,13 +2,14 @@
 
     {% block content %}
 
-    <form action="{% url 'addGame' %}" style="display:flex; flex-direction:column; width:25%">
+    <form action="{% url 'addGame' %}" style="display:flex; flex-direction:column; width:25%" method="POST">
+        {% csrf_token %}
 
         <label for="">Name:</label>
-        <input type="text" name="gameName">
+        <input type="text" name="gameName" required>
         
         <label for="">Year:</label>
-        <input type="text" name="gameYear">
+        <input type="number" name="gameYear" required>
         
         <label for="">Phase:</label>
         <select name="phases" id="">
@@ -46,5 +47,5 @@
 
     <br>
 
-    <button><a href="{% url 'home' %}">Back</a></button>
+    <a href="{% url 'home' %}">Back</a>
     {% endblock %}

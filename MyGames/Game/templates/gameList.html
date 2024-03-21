@@ -1,0 +1,22 @@
+{% extends 'home.html' %}
+
+{% block content %}
+    <h3>Your games</h3>
+
+    <ul>
+        {% for game in games %}
+        <li>
+             {{ game }}
+             <br>
+             <div style=" display:flex; gap:1em">
+                 <a href="{% url 'gameInfo' game.id %}">Info</a>
+                 <a href="">Edit</a>
+                 <a href="{% url 'removeGame' game.id %}">Remove</a> 
+
+             </div>
+        </li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'home' %}">Back</a>
+{% endblock %}

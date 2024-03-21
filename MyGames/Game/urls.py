@@ -4,6 +4,10 @@ from . import views
 
 urlpatterns = [
     path('', views.home, name="home"),
-    path('AddGame', views.addGame, name="addGame"),
-    path('ListOfGames', views.games, name="games"),
+    path('addGame', views.addGame, name="addGame"),
+    path('gameList', views.gameList, name="gameList"),
+    path('gameInfo/<int:game_id>', views.gameInfo, name="gameInfo"),
+
+    path('remove/<int:game_id>', views.removeGame, name = "removeGame")
+
 ]
