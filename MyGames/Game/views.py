@@ -54,6 +54,13 @@ def gameInfo(request, game_id):
     game = Game.objects.get(id=game_id)
     return render(request, "gameInfo.html", {"game": game})
 
+def editGame(request, game_id):
+    game = Game.objects.get(id=game_id)
+    checkEdit = True
+    phases = Phase.objects.all()
+    platforms = Platform.objects.all()
+    return render(request, "gameInfo.html", {"game": game, "checkEdit": checkEdit, "phases": phases, "platforms": platforms})
+
 def removeGame(request, game_id):
     game = Game.objects.get(id=game_id)
     game.delete()

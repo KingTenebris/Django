@@ -15,8 +15,57 @@
     
 </div>
 
-<a href="">Edit</a>
+<a href="{% url 'editGame' game.id %}">Edit</a>
 <a href="{% url 'home' %}">Back</a>
 
+{% if checkEdit %}
+<form action="">
+    <label for="">Name:</label>
+    <input type="text" name="gameName" value="{{ game.name }}" required> 
+
+    <label for="">Year:</label>
+    <input type="number" name="gameYear" value="{{ game.year }}" required> 
+
+    <label for="">Phase:</label>
+    <select name="gamePhase">
+    {% for i in phases %}
+        {% if game.phase == i %}
+        <option value="{{i}}" selected="selected">{{i}}</option>
+        {% else %}
+        <option value="{{i}}">{{i}}</option>
+        {% endif %}
+    {% endfor %}
+    </select>
+
+    <label for="">Platform:</label>
+    <select name="platforms">
+    {% for i in platforms %}
+        {% if game.platform == i %}
+        <option value="test" selected="selected">{{i}}</option>
+        {% else %}
+        <option value="{{i}}">{{i}}</option>
+        {% endif %}
+    {% endfor %}
+    </select>
+
+    <label for="">Developer:</label>
+    <select name="developers">
+    {% for i in developers %}
+        <option value="{{i}}">{{i}}</option>
+    {% endfor %}
+    </select>
+
+    <label for="">Category:</label>
+    <select name="categories">
+    {% for i in categories %}
+        <option value="{{i}}">{{i}}</option>
+    {% endfor %}
+    </select>
+
+    <input type="submit" value="Edit">
+
+</form>
+
+{% endif %}
 
 {% endblock %}
