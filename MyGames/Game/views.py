@@ -51,15 +51,28 @@ def gameList(request):
     return render(request, "gameList.html", {"games": games})
 
 def gameInfo(request, game_id):
+    checkEdit = False
     game = Game.objects.get(id=game_id)
-    return render(request, "gameInfo.html", {"game": game})
+    return render(request, "gameInfo.html", {"game": game, "checkEdit":checkEdit})
 
 def editGame(request, game_id):
     game = Game.objects.get(id=game_id)
     checkEdit = True
     phases = Phase.objects.all()
     platforms = Platform.objects.all()
-    return render(request, "gameInfo.html", {"game": game, "checkEdit": checkEdit, "phases": phases, "platforms": platforms})
+    developers = Developer.objects.all()
+    categories = Category.objects.all()
+
+    dictionary = {
+        "game": game,
+        "checkEdit": checkEdit,
+        "phases": phases,
+        "platforms": platforms,
+        "developers": developers,
+        "categories": categories
+    }
+    
+    return render(request, "gameInfo.html", dictionary)
 
 def removeGame(request, game_id):
     game = Game.objects.get(id=game_id)

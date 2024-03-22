@@ -12,6 +12,6 @@ urlpatterns = [
 
     path('remove/<int:game_id>', views.removeGame, name = "removeGame"),
 
-    path('edit/<int:game_id>', views.editGame, name="editGame")
+    path('gameInfo/<int:game_id>/edit', views.editGame, name="editGame")
 
 ]

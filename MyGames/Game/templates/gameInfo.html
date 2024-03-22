@@ -2,6 +2,7 @@
 
 {% block content %}
 
+{% if not checkEdit %}
 <div>
     <ul>
         <li>{{ game }}</li>
@@ -14,12 +15,14 @@
    
     
 </div>
+{% endif %}
 
 <a href="{% url 'editGame' game.id %}">Edit</a>
-<a href="{% url 'home' %}">Back</a>
+<a href="{% url 'gameList' %}">Back</a>
+
 
 {% if checkEdit %}
-<form action="">
+<form action="" style="display:flex; flex-direction: column; width:25%">
     <label for="">Name:</label>
     <input type="text" name="gameName" value="{{ game.name }}" required> 
 
@@ -51,21 +54,28 @@
     <label for="">Developer:</label>
     <select name="developers">
     {% for i in developers %}
+        {% if game.developer == i %}
+        <option value="{{i}}" selected="selected">{{i}}</option>
+        {% else %}
         <option value="{{i}}">{{i}}</option>
+        {% endif %}
     {% endfor %}
     </select>
 
     <label for="">Category:</label>
     <select name="categories">
     {% for i in categories %}
+        {% if game.category == i %}
+        <option value="{{i}}" selected="selected">{{i}}</option>
+        {% else %}
         <option value="{{i}}">{{i}}</option>
+        {% endif %}
     {% endfor %}
     </select>
-
-    <input type="submit" value="Edit">
-
+    <br>
+    <input type="submit" value="Save">
 </form>
-
 {% endif %}
+
 
 {% endblock %}
