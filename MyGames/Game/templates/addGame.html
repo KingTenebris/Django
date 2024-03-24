@@ -12,40 +12,35 @@
         <input type="number" name="gameYear" required>
         
         <label for="">Phase:</label>
-        <select name="phases" id="">
+        <select name="phases">
             {% for i in phases %}
                 <option value="{{i}}">{{ i }}</option>
             {% endfor %}
         </select>
         
         <label for="">Developer:</label> 
-        <select name="developers" id="">
-            {% for i in developers%}
+        <select name="developers">
+            {% for i in developers %}
                 <option value="{{i}}">{{ i }}</option>
             {% endfor %}
         </select>   
         
         <label for="">Platform:</label>
-        <select name="platforms" id="">
-            {% for i in platforms%}
+        <select name="platforms">
+            {% for i in platforms %}
                 <option value="{{i}}">{{ i }}</option>
             {% endfor %}
         </select>
         
         <label for="">Category:</label>
-        <select name="categories" id="">
-            {% for i in categories%}
+        <select name="categories">
+            {% for i in categories %}
                 <option value="{{i}}">{{ i }}</option>
             {% endfor %}
         </select>
-
         <br>
-
         <input type="submit" value="Submit">
-
     </form>
-
     <br>
-
     <a href="{% url 'home' %}">Back</a>
     {% endblock %}

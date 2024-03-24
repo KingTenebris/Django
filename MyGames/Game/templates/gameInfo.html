@@ -7,13 +7,11 @@
     <ul>
         <li>{{ game }}</li>
         <li>{{ game.year }}</li> 
-        <li>{{ game.phase }}</li>
+        <li>{{ game.year }}</li>
         <li>{{ game.platform }}</li>
         <li>{{ game.developer }}</li>
         <li>{{ game.category }}</li>
-    </ul>
-   
-    
+    </ul> 
 </div>
 {% endif %}
 
@@ -22,7 +20,9 @@
 
 
 {% if checkEdit %}
-<form action="" style="display:flex; flex-direction: column; width:25%">
+<form action="{% url 'editGame' game.id %}" style="display:flex; flex-direction: column; width:25%" method="post">
+    {% csrf_token %}
+
     <label for="">Name:</label>
     <input type="text" name="gameName" value="{{ game.name }}" required> 
 
@@ -30,7 +30,7 @@
     <input type="number" name="gameYear" value="{{ game.year }}" required> 
 
     <label for="">Phase:</label>
-    <select name="gamePhase">
+    <select name="gamePhases">
     {% for i in phases %}
         {% if game.phase == i %}
         <option value="{{i}}" selected="selected">{{i}}</option>
@@ -41,10 +41,10 @@
     </select>
 
     <label for="">Platform:</label>
-    <select name="platforms">
+    <select name="gamePlatforms">
     {% for i in platforms %}
         {% if game.platform == i %}
-        <option value="test" selected="selected">{{i}}</option>
+        <option value="{{i}}" selected="selected">{{i}}</option>
         {% else %}
         <option value="{{i}}">{{i}}</option>
         {% endif %}
@@ -52,7 +52,7 @@
     </select>
 
     <label for="">Developer:</label>
-    <select name="developers">
+    <select name="gameDevelopers">
     {% for i in developers %}
         {% if game.developer == i %}
         <option value="{{i}}" selected="selected">{{i}}</option>
@@ -63,7 +63,7 @@
     </select>
 
     <label for="">Category:</label>
-    <select name="categories">
+    <select name="gameCategories">
     {% for i in categories %}
         {% if game.category == i %}
         <option value="{{i}}" selected="selected">{{i}}</option>

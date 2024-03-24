@@ -9,9 +9,7 @@ urlpatterns = [
 
     # TODO change 'int' to 'str'
     path('gameInfo/<int:game_id>', views.gameInfo, name="gameInfo"),
-
     path('remove/<int:game_id>', views.removeGame, name = "removeGame"),
-
-    path('gameInfo/<int:game_id>/edit', views.editGame, name="editGame")
+    path('gameInfo/<int:game_id>/edit', views.editGame, name="editGame"),
 
 ]

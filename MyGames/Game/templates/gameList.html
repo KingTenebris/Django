@@ -1,22 +1,71 @@
 {% extends 'home.html' %}
 
 {% block content %}
-    <h3>Your games</h3>
 
+{% if developer %}
+<div style="display: flex; flex-direction:column; width:25%">
+    <h2>{{developer.name}}</h2>
+    <h3>{{developer.year}}</h3>
+    <h4>{{developer.info}}</h4>
+</div>
+{% endif %}
+
+<h3>Your games</h3>
+    <!-- The list of games -->
     <ul>
         {% for game in games %}
         <li>
             <a href="{% url 'gameInfo' game.id %}">{{ game }}</a>
-            
              <br>
              <div style=" display:flex; gap:1em">
-                 <a href="">Edit</a>
-                 <a href="{% url 'removeGame' game.id %}">Remove</a> 
-
+                <a href="{% url 'editGame' game.id %}">Edit</a>
+                <a href="{% url 'removeGame' game.id %}">Remove</a> 
              </div>
         </li>
+ 
+        
         {% endfor %}
     </ul>
 
+    <!-- Filter: -->
+    <div>
+        <form action="{% url 'gameList' %}" method="POST">
+            {% csrf_token %}
+            <!-- Phase: -->
+            <label for="">Phase:</label>
+            <select name="gamePhases">
+                <option value="all">All</option>
+                {%for i in phases %}
+                    {% if phase == i %}
+                    <option value="{{i}}" selected="selected">{{i}}</option>
+                    {% else %}
+                    <option value="{{i}}">{{i}}</option>
+                    {% endif%}
+                {% endfor %}
+            </select>
+            <!-- Developer: -->
+            <label for="">Developer:</label>
+            <select name="gameDevelopers">
+                <option value="all">All</option>
+                {% for i in developers %}
+                    {% if developer == i %}
+                    <!-- value will be sended to server (request.POST.get("name")) -->
+                    <option value="{{i}}" selected="selected">{{i}}</option>
+                    {% else %}
+                    <option value="{{i}}">{{i}}</option>
+                    {% endif%}
+                {% endfor %}
+            </select>
+            <!-- Category: -->
+            <!-- Platform: -->
+
+            <input type="text" name="checkName" placeholder="search">
+            <!-- value is text that will appear in html -->
+            <input type="submit" value="search">
+        </form>
+    </div>
+
+
+    
     <a href="{% url 'home' %}">Back</a>
 {% endblock %}

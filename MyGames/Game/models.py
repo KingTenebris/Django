@@ -1,7 +1,6 @@
 from django.db import models
 
 # Create your models here.
-
 #! DO not touch this
 class Phase(models.Model):
 
@@ -34,9 +33,6 @@ class Category(models.Model):
     def __str__(self):
         return self.genre
     
-
-
-#? Alex did
 class Game(models.Model):
     name = models.CharField(max_length = 100)
     year = models.IntegerField()
