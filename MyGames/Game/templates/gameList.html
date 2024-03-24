@@ -3,10 +3,10 @@
 {% block content %}
 
 {% if developer %}
-<div style="display: flex; flex-direction:column; width:25%">
-    <h2>{{developer.name}}</h2>
+<div style="display: flex; flex-direction:column; width:35%">
+    <h1>{{developer.name}}</h1>
     <h3>{{developer.year}}</h3>
-    <h4>{{developer.info}}</h4>
+    <h2>{{developer.info}}</h2>
 </div>
 {% endif %}
 
@@ -57,7 +57,31 @@
                 {% endfor %}
             </select>
             <!-- Category: -->
+            <label for="">Category:</label>
+            <select name="gameCategories">
+                <option value="all">All</option>
+                {% for i in categories %}
+                    {% if category == i %}
+                    <!-- value will be sended to server (request.POST.get("name")) -->
+                    <option value="{{i}}" selected="selected">{{i}}</option>
+                    {% else %}
+                    <option value="{{i}}">{{i}}</option>
+                    {% endif%}
+                {% endfor %}
+            </select>
             <!-- Platform: -->
+            <label for="">Platform:</label>
+            <select name="gamePlatforms">
+                <option value="all">All</option>
+                {% for i in platforms %}
+                    {% if platform == i %}
+                    <!-- value will be sended to server (request.POST.get("name")) -->
+                    <option value="{{i}}" selected="selected">{{i}}</option>
+                    {% else %}
+                    <option value="{{i}}">{{i}}</option>
+                    {% endif%}
+                {% endfor %}
+            </select>
 
             <input type="text" name="checkName" placeholder="search">
             <!-- value is text that will appear in html -->

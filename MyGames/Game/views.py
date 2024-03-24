@@ -44,10 +44,14 @@ def gameList(request):
     games = Game.objects.all()
     phases = Phase.objects.all()
     developers = Developer.objects.all()
+    categories = Category.objects.all()
+    platforms = Platform.objects.all()
 
     dictionary = {
         "phases": phases,
-        "developers": developers
+        "developers": developers,
+        "categories": categories,
+        "platforms": platforms
     }
 
     # Filter:
@@ -58,7 +62,9 @@ def gameList(request):
         games = games.filter(name__icontains = checkName)
 
         gamePhase = request.POST.get("gamePhases")
-        gameDeveloper = request.POST.get("gameDevelopers") 
+        gameDeveloper = request.POST.get("gameDevelopers")
+        gameCategory = request.POST.get("gameCategories")
+        gamePlatform = request.POST.get("gamePlatforms") 
         
         if  gamePhase != "all":
             phase = Phase.objects.get(state = gamePhase)
@@ -71,8 +77,19 @@ def gameList(request):
             games = games.filter(developer = developer)
             # Adding key valuer to dictionary 
             dictionary["developer"] = developer
-        
 
+        if gameCategory != "all":
+            category = Category.objects.get(genre = gameCategory)
+            games = games.filter(category = category)
+            # Adding key valuer to dictionary 
+            dictionary["category"] = category
+
+        if gamePlatform != "all":
+            platform = platform.objects.get(name = gamePlatform)
+            games = games.filter(platform = platform)
+            # Adding key valuer to dictionary 
+            dictionary["platform"] = platform
+        
     # Update key value in dictionary (upper)
     dictionary["games"] = games
     
