@@ -1,7 +1,7 @@
 {% extends 'home.html' %}
 
 {% block content %}
-
+<!-- A "checkEdit" used to see if user want only see the information about the game, or edit it -->
 {% if not checkEdit %}
 <div>
     <ul>
@@ -21,6 +21,7 @@
 
 
 {% if checkEdit %}
+<!-- The same form as in addGame, but a bit different. Could use include to do code a bit better, but didn't know it before -->
 <form action="{% url 'editGame' game.id %}" style="display:flex; flex-direction: column; width:25%" method="post">
     {% csrf_token %}
 
@@ -32,7 +33,9 @@
 
     <label for="">Phase:</label>
     <select name="gamePhases">
+    <!-- for-loop to show all option -->
     {% for i in phases %}
+        <!-- if-statement to show user chosen option before, to make better experience for user -->
         {% if game.phase == i %}
         <option value="{{i}}" selected="selected">{{i}}</option>
         {% else %}

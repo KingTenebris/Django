@@ -2,6 +2,7 @@
 
 {% block content %}
 
+<!-- Idea of "if-developer" is to show information about each developer, when user filter them -->
 {% if developer %}
 <div style="display: flex; flex-direction:column; width:35%">
     <h1>{{developer.name}}</h1>
@@ -13,6 +14,7 @@
 <h3>Your games</h3>
     <!-- The list of games -->
     <ul>
+        <!-- Show the list of the game that user put/created -->
         {% for game in games %}
         <li>
             <a href="{% url 'gameInfo' game.id %}">{{ game }}</a>
@@ -37,6 +39,7 @@
                 <option value="all">All</option>
                 {%for i in phases %}
                     {% if phase == i %}
+                    <!-- value will be sended to server (request.POST.get("name")) -->
                     <option value="{{i}}" selected="selected">{{i}}</option>
                     {% else %}
                     <option value="{{i}}">{{i}}</option>
@@ -49,7 +52,6 @@
                 <option value="all">All</option>
                 {% for i in developers %}
                     {% if developer == i %}
-                    <!-- value will be sended to server (request.POST.get("name")) -->
                     <option value="{{i}}" selected="selected">{{i}}</option>
                     {% else %}
                     <option value="{{i}}">{{i}}</option>
@@ -62,7 +64,6 @@
                 <option value="all">All</option>
                 {% for i in categories %}
                     {% if category == i %}
-                    <!-- value will be sended to server (request.POST.get("name")) -->
                     <option value="{{i}}" selected="selected">{{i}}</option>
                     {% else %}
                     <option value="{{i}}">{{i}}</option>
@@ -75,7 +76,6 @@
                 <option value="all">All</option>
                 {% for i in platforms %}
                     {% if platform == i %}
-                    <!-- value will be sended to server (request.POST.get("name")) -->
                     <option value="{{i}}" selected="selected">{{i}}</option>
                     {% else %}
                     <option value="{{i}}">{{i}}</option>

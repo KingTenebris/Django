@@ -9,9 +9,12 @@
     <div>
         <a href="{% url 'home' %}"><h1>Welcome to My Games</h1></a>
     </div>
+    <!-- Using "block content" to keep the same layout with different information in it -->
     {% block content %}
+    <!-- A bit of style without css -->
     <div style="display:flex; gap:25px;">
-        <a href="{% url 'addGame' %}">Add game</a>
+        <!-- Two buttons/links to navigate on the website -->
+        <a href="{% urlMultitasking 'addGame' %}">Add game</a>
         <a href="{% url 'gameList' %}">List of games</a>
     </div>
     {% endblock %}

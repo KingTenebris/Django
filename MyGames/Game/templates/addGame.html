@@ -1,7 +1,8 @@
+<!-- Using "extends" to keep the same layout -->
 {% extends 'home.html' %}
 
     {% block content %}
-
+    <!-- A huge form to store all users input or select to create a game and send it to database -->
     <form action="{% url 'addGame' %}" style="display:flex; flex-direction:column; width:25%" method="POST">
         {% csrf_token %}
 
@@ -13,6 +14,7 @@
         
         <label for="">Phase:</label>
         <select name="phases">
+            <!-- Doing a for-loop, to show user all options -->
             {% for i in phases %}
                 <option value="{{i}}">{{ i }}</option>
             {% endfor %}
@@ -20,6 +22,7 @@
         
         <label for="">Developer:</label> 
         <select name="developers">
+            <!-- Doing a for-loop, to show user all options -->
             {% for i in developers %}
                 <option value="{{i}}">{{ i }}</option>
             {% endfor %}
@@ -27,6 +30,7 @@
         
         <label for="">Platform:</label>
         <select name="platforms">
+            <!-- Doing a for-loop, to show user all options -->
             {% for i in platforms %}
                 <option value="{{i}}">{{ i }}</option>
             {% endfor %}
@@ -34,6 +38,7 @@
         
         <label for="">Category:</label>
         <select name="categories">
+            <!-- Doing a for-loop, to show user all options -->
             {% for i in categories %}
                 <option value="{{i}}">{{ i }}</option>
             {% endfor %}
