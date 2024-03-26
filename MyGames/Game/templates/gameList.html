@@ -4,10 +4,10 @@
 
 <!-- Idea of "if-developer" is to show information about each developer, when user filter them -->
 {% if developer %}
-<div style="display: flex; flex-direction:column; width:35%">
-    <h1>{{developer.name}}</h1>
-    <h3>{{developer.year}}</h3>
-    <h2>{{developer.info}}</h2>
+<div style="display: flex; flex-direction:column; width:50%">
+    <h2>{{developer.name}}</h2>
+    <p>Year: {{developer.year}}</p>
+    <h4>{{developer.info}}</h4>
 </div>
 {% endif %}
 
