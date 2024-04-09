@@ -2,11 +2,14 @@
 
 {% block content %}
 
-<form action="" method="post">
+{{ message }}
+
+<form action="{% url 'signIn' %}" method="post">
+    {% csrf_token %}
     <label for="">Username:</label>
-    <input type="text">
+    <input type="text" name="username">
     <label for="">Password:</label>
-    <input type="text">
+    <input type="password" name="password">
 
     <input type="submit" value="Log In">
 </form>
